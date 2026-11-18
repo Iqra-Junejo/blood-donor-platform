@@ -1,2 +1,7 @@
-# blood-donor-platform
-A web-based platform designed to connect blood donors with individuals and healthcare facilities in need of blood. The system aims to simplify the blood donation process by helping users find potential donors based on blood groups and location.
+# Blood Donor Platform
+
+4 containers: frontend (nginx), backend (Node/Express), db (MongoDB), gateway (nginx reverse proxy).
+
+Run locally:  docker-compose up --build   ->  http://localhost:8081
+
+CI/CD: GitHub -> Jenkins (Jenkinsfile) -> docker-compose build & deploy.

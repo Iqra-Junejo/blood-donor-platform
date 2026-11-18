@@ -1,0 +1,26 @@
+services:
+  db:
+    image: mongo:7
+    volumes:
+      - mongodata:/data/db
+
+  backend:
+    build: ./backend
+    environment:
+      MONGO_URI: mongodb://db:27017/blooddb
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "8081:80"
+    depends_on:
+      - frontend
+      - backend
+
+volumes:
+  mongodata:
