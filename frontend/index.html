@@ -3,45 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blood Donor Platform</title>
+  <title>LifeDrop Blood Donor Center | Give Blood, Save Lives</title>
+  <meta name="description" content="Register as a blood donor and find donors by blood group and city.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><h1>Blood Donor Platform</h1><p>Donate blood and save lives.</p></header>
-  <main>
-    <section class="card">
-      <h2>Register as Donor</h2>
-      <form id="donorForm">
-        <input name="name" placeholder="Full name" required>
-        <select name="bloodGroup" required>
-          <option value="">Blood group</option>
-          <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
-          <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
-        </select>
-        <input name="city" placeholder="City" required>
-        <input name="phone" placeholder="Phone" required>
-        <button type="submit">Register</button>
-      </form>
-      <p id="msg"></p>
-    </section>
 
-    <section class="card">
-      <h2>Find Donors</h2>
-      <div class="filters">
-        <select id="fGroup">
-          <option value="">All groups</option>
+  <!-- NAV -->
+  <header class="nav" id="top">
+    <div class="container nav-inner">
+      <a href="#top" class="logo">
+        <svg viewBox="-60 -70 120 140" width="26" height="30" aria-hidden="true"><path d="M0,-60 C30,-20 50,10 50,35 A50,50 0 1 1 -50,35 C-50,10 -30,-20 0,-60Z" fill="currentColor"/></svg>
+        <span>Life<b>Drop</b></span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+      <nav id="navLinks">
+        <a href="#why">Why Donate</a>
+        <a href="#how">How It Works</a>
+        <a href="#compat">Compatibility</a>
+        <a href="#find">Find Donors</a>
+        <a href="#register" class="btn btn-small">Become a Donor</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow">Every drop counts</span>
+        <h1>Give Blood.<br><em>Give Life.</em></h1>
+        <p>One donation can save up to three lives. Join our community of volunteer donors and help patients in your city find blood when every minute matters.</p>
+        <div class="hero-cta">
+          <a href="#register" class="btn">Register as Donor</a>
+          <a href="#find" class="btn btn-ghost">Find a Donor</a>
+        </div>
+        <div class="stats">
+          <div><strong id="statDonors">0</strong><span>Registered Donors</span></div>
+          <div><strong>8</strong><span>Blood Groups</span></div>
+          <div><strong>24/7</strong><span>Always Open</span></div>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h3>Need blood urgently?</h3>
+        <p>Pick a blood group and see available donors instantly.</p>
+        <select id="quickGroup">
+          <option value="">Select blood group</option>
           <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
           <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
         </select>
-        <input id="fCity" placeholder="City">
-        <button id="searchBtn">Search</button>
+        <button class="btn btn-full" id="quickBtn">Search Donors</button>
+      </aside>
+    </div>
+  </section>
+
+  <!-- WHY DONATE -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow dark">Why donate</span>
+        <h2>Small act. Huge impact.</h2>
+        <p>Blood cannot be manufactured. It can only come from generous people like you.</p>
       </div>
-      <table>
-        <thead><tr><th>Name</th><th>Group</th><th>City</th><th>Phone</th></tr></thead>
-        <tbody id="list"></tbody>
-      </table>
-    </section>
-  </main>
+      <div class="grid-3">
+        <article class="card feature">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-9.1C1 8.5 3 5 6.4 5c2 0 3.5 1.1 4.6 2.6C12.1 6.1 13.6 5 15.6 5 19 5 21 8.5 19.3 11.9 17 16.4 12 21 12 21z" fill="currentColor"/></svg></div>
+          <h3>Save up to 3 lives</h3>
+          <p>Each donation is separated into red cells, plasma and platelets, helping several patients.</p>
+        </article>
+        <article class="card feature">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3zm-1 14l6-6-1.4-1.4L11 13.2 8.4 10.6 7 12l4 4z" fill="currentColor"/></svg></div>
+          <h3>Safe and simple</h3>
+          <p>The process takes under an hour and uses sterile, single-use equipment every time.</p>
+        </article>
+        <article class="card feature">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z" fill="currentColor"/></svg></div>
+          <h3>Strengthen your community</h3>
+          <p>Be the reason a family gets good news. Patients nearby need blood every single day.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section alt" id="how">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow dark">How it works</span>
+        <h2>Three easy steps</h2>
+      </div>
+      <div class="grid-3 steps">
+        <div class="step"><span>1</span><h3>Register</h3><p>Fill in the short donor form with your blood group, city and phone number.</p></div>
+        <div class="step"><span>2</span><h3>Get Matched</h3><p>People in need search by blood group and city and find you in seconds.</p></div>
+        <div class="step"><span>3</span><h3>Donate</h3><p>Connect directly, visit the hospital, and give the gift of life.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPATIBILITY -->
+  <section class="section" id="compat">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow dark">Know your type</span>
+        <h2>Blood group compatibility</h2>
+        <p>Find out who you can donate to and receive from.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="compat">
+          <thead><tr><th>Blood Group</th><th>Can Donate To</th><th>Can Receive From</th></tr></thead>
+          <tbody>
+            <tr><td><b>O-</b></td><td>Everyone (universal donor)</td><td>O-</td></tr>
+            <tr><td><b>O+</b></td><td>O+, A+, B+, AB+</td><td>O+, O-</td></tr>
+            <tr><td><b>A-</b></td><td>A-, A+, AB-, AB+</td><td>A-, O-</td></tr>
+            <tr><td><b>A+</b></td><td>A+, AB+</td><td>A+, A-, O+, O-</td></tr>
+            <tr><td><b>B-</b></td><td>B-, B+, AB-, AB+</td><td>B-, O-</td></tr>
+            <tr><td><b>B+</b></td><td>B+, AB+</td><td>B+, B-, O+, O-</td></tr>
+            <tr><td><b>AB-</b></td><td>AB-, AB+</td><td>AB-, A-, B-, O-</td></tr>
+            <tr><td><b>AB+</b></td><td>AB+</td><td>Everyone (universal recipient)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND DONORS -->
+  <section class="section alt" id="find">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow dark">Find donors</span>
+        <h2>Search available donors</h2>
+        <p>Filter by blood group and city.</p>
+      </div>
+      <div class="filters">
+        <div class="chips" id="chips"></div>
+        <input id="fCity" type="text" placeholder="Search by city (e.g. Karachi)">
+      </div>
+      <p class="result-count" id="resultCount"></p>
+      <div class="donor-grid" id="list"></div>
+    </div>
+  </section>
+
+  <!-- REGISTER -->
+  <section class="section" id="register">
+    <div class="container">
+      <div class="register">
+        <div class="register-side">
+          <h2>Become a<br>Lifesaver</h2>
+          <p>Registering takes less than a minute. Your details are shown only so people in need can reach you.</p>
+          <ul>
+            <li>Free to join</li>
+            <li>Be listed instantly</li>
+            <li>Help patients in your city</li>
+          </ul>
+        </div>
+        <form id="donorForm" class="register-form">
+          <h3>Donor Registration</h3>
+          <label>Full name<input name="name" placeholder="e.g. Ayesha Khan" required></label>
+          <div class="row">
+            <label>Blood group
+              <select name="bloodGroup" required>
+                <option value="">Select</option>
+                <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+              </select>
+            </label>
+            <label>City<input name="city" placeholder="e.g. Karachi" required></label>
+          </div>
+          <label>Phone number<input name="phone" type="tel" placeholder="03XX XXXXXXX" required></label>
+          <button type="submit" class="btn btn-full">Register as Donor</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="logo light"><svg viewBox="-60 -70 120 140" width="22" height="26"><path d="M0,-60 C30,-20 50,10 50,35 A50,50 0 1 1 -50,35 C-50,10 -30,-20 0,-60Z" fill="currentColor"/></svg><span>Life<b>Drop</b></span></div>
+      <p>Connecting blood donors with people in need.</p>
+      <small>&copy; 2026 LifeDrop Blood Donor Platform. Built with Docker &amp; Jenkins CI/CD.</small>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
   <script src="app.js"></script>
 </body>
 </html>
